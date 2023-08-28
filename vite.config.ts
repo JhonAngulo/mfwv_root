@@ -12,29 +12,15 @@ export default defineConfig(({ command, mode }) => {
     react(),
     federation({
       name: 'root-module',
-      filename: 'root.js',
-      exposes: {},
-      // remotes: importmap[mode],
-      shared: {
-        react: {
-          requiredVersion: '17.0.2'
-        },
-        'react-dom': {
-          requiredVersion: '17.0.2'
-        },
-        'react-router-dom': {
-          requiredVersion: '5.3.4'
-        },
-        '@emotion/react': {
-          requiredVersion: '11.10.5'
-        },
-        '@emotion/styled': {
-          requiredVersion: '11.10.5'
-        },
-        '@mui/material': {
-          requiredVersion: '5.11.0'
-        }
-      }
+      remotes: {
+        // remoteApp: {
+        //   external: 'http://localhost:5001/remoteEntry.js',
+        //   from: 'vite',
+        //   format: 'esm'
+        // }
+        commons_module: 'http://localhost:5001/assets/commons_module.js'
+      },
+      shared: ['react', 'react-dom']
     })
   ]
 
@@ -42,12 +28,21 @@ export default defineConfig(({ command, mode }) => {
     return {
       // dev specific config
       mode: 'development',
+      server: {
+        port: 5000
+      },
+      preview: {
+        port: 5000
+      },
       plugins: [...plugins]
     }
   } else {
     // command === 'build'
     return {
       // build specific config
+      build: {
+        target: 'esnext'
+      },
       mode: 'production',
       plugins: [...plugins]
     }

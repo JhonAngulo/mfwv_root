@@ -22,7 +22,7 @@
     "removeComments": true,
 
     /* Alias */
-    "baseUrl": "./",
+    // "baseUrl": "./",
     "paths": {
       "@assets/*": ["./src/assets/*"],
       "@components/*": ["./src/components/*"],

@@ -10,6 +10,12 @@ declare module '*.png' {
   export default content
 }
 
-declare module 'commons_module' {
-  const DefaultTheme: () => unknown
-}
+// declare module 'commons_module' {
+//   import { type FunctionComponent } from 'react'
+//   const DefaultTheme: () => unknown
+
+//   const Button: FunctionComponent
+//   return {
+//     Button
+//   }
+// }
