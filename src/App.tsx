@@ -1,16 +1,16 @@
-/* eslint-disable */
-/* eslint-disable */
+/* eslint-disable import/no-absolute-path */
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
-import viteLogo from './../public/vite.svg'
-// @ts-ignore
-import { Button } from 'commons_module'
-import './App.css'
+import viteLogo from '/vite.svg'
 
+import { Button } from 'commons_module/Componets'
+
+import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
 
+  console.log('test', Button)
   return (
     <>
       <div>
